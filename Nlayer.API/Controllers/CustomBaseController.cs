@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NLayer.Core.DTOs;
 
 namespace Nlayer.API.Controllers
@@ -12,19 +11,16 @@ namespace Nlayer.API.Controllers
         public IActionResult CreateActionResult<T>(CustomResponseDto<T> response)
         {
             if (response.StatusCode == 204)
-            {
                 return new ObjectResult(null)
                 {
                     StatusCode = response.StatusCode
                 };
-            }
+
             return new ObjectResult(response)
             {
                 StatusCode = response.StatusCode
             };
 
-
-             
 
         }
     }

@@ -10,7 +10,7 @@ using NLayer.Service.Services;
 using System.Reflection;
 using Module = Autofac.Module;
 
-namespace Nlayer.API.Modules
+namespace Nlayer.Web.Modules
 {
     public class RepoServiceModule : Module
     {
@@ -34,7 +34,7 @@ namespace Nlayer.API.Modules
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
 
-            // builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
+
 
         }
     }

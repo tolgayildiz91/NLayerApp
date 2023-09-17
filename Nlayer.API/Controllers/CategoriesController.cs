@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Nlayer.API.Filters;
+using NLayer.Core.DTOs;
 using NLayer.Core.Services;
 
 namespace Nlayer.API.Controllers
@@ -14,6 +14,20 @@ namespace Nlayer.API.Controllers
             _categoryService = categoryService;
             _mapper = mapper;
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+
+            var categories = await _categoryService.GetAllAsync();
+
+            var categoriesDto = _mapper.Map<List<CategoryDto>>(categories.ToList());
+
+            return CreateActionResult(CustomResponseDto<List<CategoryDto>>.Success(200, categoriesDto));
+
+        }
+
 
         // api/categories/GetSingleCategoryByIdWithProducts/2
         [HttpGet("[action]/{categoryId}")]

@@ -6,14 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Nlayer.API.Filters;
 using Nlayer.API.Middlewares;
 using Nlayer.API.Modules;
-using NLayer.Core.Repositories;
-using NLayer.Core.Services;
-using NLayer.Core.UnitOfWorks;
 using NLayer.Repository;
-using NLayer.Repository.Repositories;
-using NLayer.Repository.UnitOfWorks;
 using NLayer.Service.Mapping;
-using NLayer.Service.Services;
 using NLayer.Service.Validations;
 using System.Reflection;
 
@@ -26,6 +20,7 @@ builder.Services.AddControllers(options => options.Filters.Add(new ValidateFilte
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressModelStateInvalidFilter = true;
+
 });
 
 
